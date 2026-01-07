@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <title>Chúc mừng sinh nhật 🎂</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at top, #ffecd2, #fcb69f);
+      }
+
+      .container {
+        width: 500px;
+        background: #fff;
+        border-radius: 26px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+        overflow: hidden;
+        text-align: center;
+        padding: 40px;
+      }
+
+      h1 {
+        font-size: 26px;
+        margin-bottom: 14px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.7;
+        text-align: justify;
+      }
+
+      /* ===== PHẦN KHÓA ===== */
+      .lock {
+        margin-top: 20px;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #ddd;
+        font-size: 16px; /* iOS không zoom */
+        outline: none;
+      }
+
+      button {
+        margin-top: 14px;
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 14px;
+        background: #ff7675;
+        color: white;
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+
+      .error {
+        color: #e74c3c;
+        font-size: 14px;
+        margin-top: 10px;
+        display: none;
+      }
+
+      /* ===== NỘI DUNG SINH NHẬT ===== */
+      .content {
+        display: none;
+        animation: fadeIn 0.8s ease;
+      }
+
+      .content img {
+        width: 100%;
+        max-height: 260px;
+        object-fit: cover;
+        border-radius: 20px;
+        margin-bottom: 22px;
+      }
+
+      .signature {
+        margin-top: 20px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== CONFETTI ===== */
+      #confetti-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 999;
+      }
+
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 14px;
+        opacity: 0.9;
+        animation: fall linear forwards;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ===== MOBILE (iPhone) ===== */
+      @media (max-width: 520px) {
+        .container {
+          width: 92vw;
+          padding: 28px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="confetti-container"></div>
+
+    <div class="container">
+      <!-- PHẦN KHÓA -->
+      <div class="lock" id="lock">
+        <h1>🔒 Khóa mất tiêu rồiii</h1>
+        <p>Nhập mật mã để mở khóa nè =))) 🎁</p>
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Nhập mật mã... (Gợi ý: Một ngày đặc biệt)"
+        />
+        <button onclick="checkPassword()">Mở khóa 👁️</button>
+
+        <div class="error" id="error">
+          ❌ Mật mã chưa đúng òi! Thử lại xem nè
+        </div>
+      </div>
+
+      <!-- NỘI DUNG -->
+      <div class="content" id="content">
+        <img
+          src="https://i.pinimg.com/originals/7e/b3/3e/7eb33ed74edfc8f5275a88eb1d9d0d72.gif"
+          alt="Birthday"
+        />
+
+        <h1>🎉 Chúc Linh sinh nhật zui ze!!</h1>
+
+        <p>
+          -Tuổi mới đến rồi, anh chỉ mong em luôn khỏe mạnh, bình yên và mỗi ngày
+          trôi qua đều có ít nhất một điều khiến em mỉm cười thật lòng.<br /><br />
+          -Mong rằng em sẽ luôn được yêu thương dịu dàng, được là chính mình mà
+          không cần phải gồng lên mạnh mẽ, được ước mơ, được mệt mỏi, và luôn có
+          một nơi để trở về khi cần nghỉ ngơi.<br /><br />
+          -Nếu có lúc em thấy chênh vênh, anh hy vọng em sẽ nhớ rằng luôn có một
+          người âm thầm quan tâm, luôn muốn ở bên và lắng nghe em. 😶‍🌫️<br /><br />
+          🌟Chúc cho tuổi mới của em không chỉ có những niềm vui rực rỡ, mà còn có
+          những lúc bình yên rất tuy có thể rất nhỉ… nhưng đủ để sưởi ấm cho em. 💭💭
+        </p>
+
+        <p>Mong rằng hôm nay sẽ là một ngày thật đặc biệt với em nhó 💖</p>
+
+        <div class="signature">
+          Thân gửi 💌<br />
+          Kyle | Khôi
+        </div>
+      </div>
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="birthdayMusic" loop>
+      <source src="music/Heaven Sent.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const CORRECT_PASSWORD = "08012009";
+
+      function checkPassword() {
+        const input = document.getElementById("password").value;
+        const error = document.getElementById("error");
+        const music = document.getElementById("birthdayMusic");
+
+        if (input === CORRECT_PASSWORD) {
+          document.getElementById("lock").style.display = "none";
+          document.getElementById("content").style.display = "block";
+
+          // 🎵 Nhạc fade-in (iOS-safe)
+          music.volume = 0;
+          music.play();
+
+          let vol = 0;
+          const fade = setInterval(() => {
+            if (vol < 0.1) {
+              vol += 0.01;
+              music.volume = vol;
+            } else {
+              clearInterval(fade);
+            }
+          }, 200);
+
+          launchConfetti();
+        } else {
+          error.style.display = "block";
+        }
+      }
+
+      function launchConfetti() {
+        const container = document.getElementById("confetti-container");
+        const colors = ["#ff7675", "#74b9ff", "#ffeaa7", "#55efc4", "#fd79a8"];
+
+        for (let i = 0; i < 80; i++) {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti";
+
+          const size = Math.random() * 8 + 6;
+          confetti.style.width = size + "px";
+          confetti.style.height = size * 1.4 + "px";
+          confetti.style.left = Math.random() * 100 + "vw";
+          confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.animationDuration =
+            Math.random() * 2 + 2 + "s";
+
+          container.appendChild(confetti);
+
+          setTimeout(() => confetti.remove(), 4000);
+        }
+      }
+    </script>
+  </body>
+</html>
